@@ -1,0 +1,51 @@
+class Solution {
+public:
+    int romanToInt(string s) {
+       
+   
+
+
+    int count[26];
+        count['I'-'A']=1;
+        count['V'-'A']=5;
+        count['X'-'A']=10;
+        count['L'-'A']=50;
+        count['C'-'A']=100;
+        count['D'-'A']=500;
+        count['M'-'A']=1000;
+
+        int sum=0;
+        for(int i=0;i<s.size();i++){
+
+            //  cout<<sum<<"  ";in
+
+            if(i<s.size()-1){
+
+            int a=count[s[i]-'A'];
+            int b=count[s[i+1]-'A']; 
+         
+            
+
+            if(a<b){
+                sum=sum+(b-a);
+                i++;
+            }
+
+            else{
+            sum=sum+a;
+            }
+
+            }
+
+        else{
+                sum=sum+count[s[i]-'A'];
+            }
+
+            
+        }
+
+        return sum;
+
+
+    }
+};
