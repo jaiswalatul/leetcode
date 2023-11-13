@@ -3,6 +3,8 @@ public:
     int searchInsert(vector<int>& v, int target) {
          
 
+          //insert 
+          
          int s=0;
          int e=v.size()-1;
            int ans=-1;
