@@ -79,7 +79,7 @@ int secsmallest(int n, vector<int> a){
             secsmall=smallest;
             smallest=a[i];
         }
-        else if(a[i]<secsmall  && a[i]>smallest){
+        else if(a[i]!=smallest  && a[i]<secsmall){
             secsmall=a[i];
         }
     }
