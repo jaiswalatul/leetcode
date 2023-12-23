@@ -8,40 +8,36 @@ class Solution{
   public:
     //Function to fill the array elements into a hash table 
     //using Linear Probing to handle collisions.
-    vector<int> linearProbing(int hashSize,int arr[], 
-    int sizeOfArray)
+    vector<int> linearProbing(int m,int arr[], 
+    int n)
     {
-        //Your code here
-        int idx=0;
-        int n=sizeOfArray;
-        int capacity=0;
-        vector<int>ans(hashSize,-1);
-        
+           vector<int>v(m,-1);
+           int capacity=0;
       for(int i=0;i<n;i++){
-          
-          if(capacity==hashSize){
-              break;
-          }
-          
-          int j=arr[i]%hashSize;
-          
-          int d=j;
            
-            while(ans[j]!=-1 && ans[j]!=arr[i])
-            {
-                j=(j+1)%hashSize;
-                if(d==j)
-                    break;
-            }
-            
-          if(ans[j]==-1){
-              capacity++;
-              ans[j]=arr[i];
+        //   if(capacity==m){
+        //       break;
+        //   }
+           
+          int k=0;
+          int idx=(arr[i]%m+k)%m;
+          int d=idx; 
+          while(v[idx]!=-1 && v[idx]!=arr[i]){
+              k++;
+              idx=(arr[i]%m+k)%m;
+              if(d==idx){
+                  break;
+              }
+          }
+           
+          if(v[idx]==-1){
+             
+              v[idx]=arr[i];
           }  
-          
+           
       }
-        
-        return ans;
+       
+       return v;
     }
 
 };
